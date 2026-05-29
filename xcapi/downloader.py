@@ -114,10 +114,10 @@ class Downloader:
         return stats
 
     def save_metadata_only(
-        self,
-        recordings: List[Dict],
-        verbose: bool = False
-    ) -> str:
+    self,
+    recordings: List[Dict],
+    verbose: bool = False
+) -> str:
         """
         Save only metadata for recordings not yet downloaded to metadata_only.csv.
 
@@ -305,7 +305,7 @@ class Downloader:
         'lat', 'lon', 'alt', 'type', 'sex', 'stage', 'method',
         'url', 'file', 'file-name', 'lic', 'q', 'length', 'time',
         'date', 'uploaded', 'rmk', 'animal-seen', 'playback-used',
-        'temp', 'regnr', 'auto', 'dvc', 'mic', 'smp'
+        'temp', 'regnr', 'auto', 'dvc', 'mic', 'smp', 'also'
     ]
 
     def _write_csv(self, path: Path, recordings: List[Dict], mode: str = 'a'):
@@ -327,8 +327,10 @@ class Downloader:
                 writer.writeheader()
             for recording in recordings:
                 row = {k: recording.get(k, '') for k in self.FIELDNAMES}
-                if 'also' in recording and isinstance(recording['also'], list):
+                if isinstance(recording.get('also'), list):
                     row['also'] = '; '.join(recording['also'])
+                else:
+                    row['also'] = recording.get('also', '')
                 writer.writerow(row)
 
     def _append_metadata(self, recordings: List[Dict], redownload: bool = False):
