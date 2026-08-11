@@ -305,7 +305,7 @@ class Downloader:
         'lat', 'lon', 'alt', 'type', 'sex', 'stage', 'method',
         'url', 'file', 'file-name', 'lic', 'q', 'length', 'time',
         'date', 'uploaded', 'rmk', 'animal-seen', 'playback-used',
-        'temp', 'regnr', 'auto', 'dvc', 'mic', 'smp', 'also'
+        'temp', 'regnr', 'auto', 'dvc', 'mic', 'smp', 'also', 'status'
     ]
 
     def _write_csv(self, path: Path, recordings: List[Dict], mode: str = 'a'):

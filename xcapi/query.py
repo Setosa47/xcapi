@@ -221,6 +221,11 @@ class QueryBuilder:
         """Filter by background species."""
         return self._add_tag('also', species, quote=True)
     
+    def id_questioned(self, questioned: bool) -> 'QueryBuilder':
+        """emits id?:yes or id?:no"""
+        value = 'yes' if questioned else 'no'
+        return self._add_tag('id?', value)
+    
     def animal_seen(self, seen: bool) -> 'QueryBuilder':
         """Filter by whether the animal was seen."""
         value = 'yes' if seen else 'no'

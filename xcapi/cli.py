@@ -139,6 +139,7 @@ Environment Variables:
     other_group.add_argument('--also', help='Background species name. To perform a search for a background species name that has multiple words, you must enclose the words in double quotes.')
     other_group.add_argument('--seen', choices=['yes', 'no'], help='Was the animal seen? (yes/no)')
     other_group.add_argument('--playback', choices=['yes', 'no'], help='Was playback used? (yes/no)')
+    other_group.add_argument('--id_quest', '--id_questioned', choices=['yes', 'no'], help='...')
 
     metadata_group = parser.add_argument_group('Recording metadata filters')
     metadata_group.add_argument(
@@ -301,7 +302,8 @@ def build_query_from_args(args) -> str:
         builder.animal_seen(args.seen == 'yes')
     if args.playback:
         builder.playback_used(args.playback == 'yes')
-
+    if args.id_quest:
+        builder.id_questioned(args.id_quest == 'yes')
     if args.nr:
         builder.xc_number(args.nr)
     if args.temp:
