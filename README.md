@@ -204,6 +204,7 @@ You can chain multiple filters when building a query:
 - `also(species)` – background species
 - `animal_seen(True/False)`
 - `playback_used(True/False)`
+- `id_questioned(True/False)`
 - `xc_number(value)` – e.g. `"76967"`, `"88888-88890"`, `">76967"`
 - `temperature(value)` – e.g. `"20-30"`, `"<10"`
 - `registration_number(value)`
