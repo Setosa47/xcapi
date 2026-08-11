@@ -4,6 +4,11 @@ A Python package for downloading animal sound recordings from the [Xeno-canto](h
 
 No programming knowledge required — xcapi can be used entirely from the command line.
 
+## Recent Updates
+ 
+- **2026-08-11** — Added `id_questioned` filter (Python API) / `--id_quest` flag (CLI), for filtering recordings by identification status using the Xeno-canto `id?` search tag. Note: this uses a newer API feature that's still being finalized upstream — see the [Available query filters](#available-query-filters) section for details.
+- **2026-04-22** — Added smart incremental download tracking: xcapi now remembers what's already been downloaded and skips it on repeat runs. Introduced `xcapi_runs.json` and replaced `--skip_existing` with `--redownload` (opt-out instead of opt-in skipping).
+
 ## Features
 
 - **Comprehensive search**: Support for all [Xeno-canto API v3](https://xeno-canto.org/explore/api) search tags:
