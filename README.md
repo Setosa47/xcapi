@@ -90,11 +90,15 @@ Download frog sounds filtered by sample rate and quality:
 xcapi --grp frogs --smp ">44100" --q "<C" --output_dir ./data
 ```
 
+Download bird recordings that have not been questioned:
+```bash
+xcapi --grp birds --id_quest no --output_dir ./data
+```
+
 **Re-run the same command** — xcapi will automatically skip recordings already downloaded and only fetch new ones. Note that skipping only works when you point to the same `--output_dir` as a previous download, and that directory contains either `xcapi_runs.json` or `metadata.csv`:
 ```bash
 xcapi --grp frogs --smp ">44100" --q "<C" --output_dir ./data
 ```
-
 ---
 
 #### Previewing before downloading
